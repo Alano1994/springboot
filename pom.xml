@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.baizhi</groupId>
+  <artifactId>springboot</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>springboot Maven Webapp</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <!--父级项目 通过依赖SpringBoot父级项目 声明可以使用SpringBoot的默认配置
+  一种声明 声明使用哪个父级项目中的配置  只是声明没有下载
+  例如：数据源 视图解析器等等
+  配置位置：properties同级
+  -->
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.5.8.RELEASE</version>
+  </parent>
+
+  <!--全局配置-->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <!--依赖配置-->
+  <dependencies>
+
+    <!-- web 如果依赖的groupId和父级项目的groupId一样 那么不需要配置版本 和父级项目配置的版本一样-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!--整合mybatis-->
+    <!-- mybatisPlus -->
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-boot-starter</artifactId>
+      <version>3.0.6</version>
+    </dependency>
+    <!--数据源-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.0.19</version>
+    </dependency>
+    <!--数据库-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.38</version>
+    </dependency>
+
+    <!--jsp-->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <!--tomcat-embed-jasper 内嵌tomcat支持jsp的jar包-->
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-jasper</artifactId>
+    </dependency>
+
+    <!-- 测试 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!--lombok 依赖配置简化实体类-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.2</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!--fastJsonde 依赖-->
+    <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.54</version>
+    </dependency>
+
+
+
+
+  </dependencies>
+
+  <build>
+    <finalName>springboot</finalName>
+    <!--jsp启动插件-->
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+
+  </build>
+</project>
